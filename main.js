@@ -1,37 +1,30 @@
+// Keep doubling until the number is 100 or more.
 function numberDoubler(num) {
-    
-while(num < 100){
-  num = num *2
-}
-return num
+  while (num < 100) {
+    num = num * 2;
+  }
+  return num;
 }
 
+// Keep adding another copy of the string until it's at least 10 characters long.
 function stringRepeater(str) {
-let newString = ''
- while (newString.length < 10){
-     newString += str
- }
- return newString
+  let repeated = '';
+  while (repeated.length < 10) {
+    repeated += str;
+  }
+  return repeated;
 }
 
+// Keep adding 1 to x until y divides it evenly (no remainder).
 function makeDivisible(x, y) {
-    while(x%y !== 0){
-        x += 1
-    }
-    return x
-
+  while (x % y !== 0) {
+    x += 1;
+  }
+  return x;
 }
-
-// function makeDivisible(x, y) {
-//     let outputX = x;
-//     while (outputX % y !== 0) {
-//         outputX++;
-//     }
-//     return outputX;
-// }
 
 module.exports = {
-    numberDoubler,
-    stringRepeater,
-    makeDivisible
+  numberDoubler,
+  stringRepeater,
+  makeDivisible,
 };
