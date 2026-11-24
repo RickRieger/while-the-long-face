@@ -20,3 +20,26 @@ describe('numberDoubler (stops at 100)', () => {
     expect(numberDoubler(150)).toBe(150);
   });
 });
+
+// Inputs that used to loop forever (the test run would hang) now throw a clear error.
+describe('inputs with no possible answer', () => {
+  it('numberDoubler rejects 0 and negatives (doubling never reaches 100)', () => {
+    expect(() => numberDoubler(0)).toThrow(RangeError);
+    expect(() => numberDoubler(-5)).toThrow(RangeError);
+  });
+
+  it('stringRepeater rejects an empty string (it never gets longer)', () => {
+    expect(() => stringRepeater('')).toThrow(RangeError);
+  });
+
+  it('makeDivisible rejects y = 0 and decimals', () => {
+    expect(() => makeDivisible(5, 0)).toThrow(RangeError);
+    expect(() => makeDivisible(9.5, 2)).toThrow(RangeError);
+    expect(() => makeDivisible(9, 2.5)).toThrow(RangeError);
+  });
+
+  it('still handles negative whole numbers', () => {
+    expect(makeDivisible(-3, 2)).toBe(-2);
+    expect(makeDivisible(9, -2)).toBe(10);
+  });
+});
